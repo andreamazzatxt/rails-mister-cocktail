@@ -30,7 +30,13 @@ body {
       border-bottom: 2px solid $green;
       outline: none;
       color: $green;
+      transition-duration: 300ms;
     }
+
+input:focus {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
 
 a:hover {
   text-decoration: none !important;

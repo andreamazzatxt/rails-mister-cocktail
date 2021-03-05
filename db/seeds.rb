@@ -28,7 +28,7 @@ pictures = %w[
   https://images.unsplash.com/photo-1607446045875-de57c995726b?ixid=MXwxMjA3fDB8MHxzZWFyY2h8OHx8Y29ja3RhaWxzfGVufDB8MXwwfA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60
 ]
 
-dose = ['2 cups', '1 liter', '2 spoons', 'just a bit', 'a cup', 'half glass']
+# dose = ['2 cups', '1 liter', '2 spoons', 'just a bit', 'a cup', 'half glass']
 def random_ingredient
   Ingredient.all.sample
 end
@@ -40,7 +40,10 @@ pictures.each do |pic|
   cocktail.photo.attach(io: file, filename: "#{name.gsub(' ', '_')}.jpeg", content_type: 'image/jpeg')
   cocktail.save!
   3.times do
-    Dose.create!(description: dose.sample, ingredient: random_ingredient, cocktail: cocktail)
+    Dose.create!(description: Faker::Food.measurement, ingredient: random_ingredient, cocktail: cocktail)
+  end
+  4.times do
+    Review.create!(content: Faker::Movies::StarWars.quote, rating: rand(1..5), cocktail: cocktail)
   end
 end
 puts 'Done !!! 🌱'

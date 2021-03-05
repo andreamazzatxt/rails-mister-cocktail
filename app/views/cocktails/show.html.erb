@@ -20,6 +20,28 @@
     <% end %>
     <%= link_to 'Back', root_path %>
   </div>
-</div>
 
+</div>
+  <div class="container review-form">
+    <h1>Reviews</h1>
+    <div class="container review-container">
+      <% @cocktail.reviews.each do |review| %>
+      <div class="review-card">
+        <p> <%= review.content %> </p>
+          <P>
+            <% review.rating.times do  %>
+             <i class="fas fa-cocktail"></i>
+            <% end %>
+          </P>
+      </div>
+      <% end %>
+    </div>
+    <h4>Add Review</h4>
+    <%= simple_form_for [@cocktail, @review] do |f| %>
+      <%= f.input :content %>
+      <%= f.input :rating,  collection: (0..5).to_a%>
+      <%= f.submit id: 'my-button' %>
+    <% end %>
+    <%= link_to 'Back', root_path %>
+  </div>
 
