@@ -14,8 +14,8 @@
     </div>
     <h4>Add Ingredients</h4>
     <%= simple_form_for [@cocktail, @dose] do |f|  %>
-      <%= f.input :description %>
-      <%= f.input :ingredient, collection: @ingredients %>
+      <%= f.input :description, required: true%>
+      <%= f.input :ingredient, collection: @ingredients, required: true %>
       <%= f.submit 'Add Dose', id: 'my-button' %>
     <% end %>
     <%= link_to 'Back', root_path %>
