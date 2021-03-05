@@ -1,8 +1,12 @@
+
+
 <div class="new-container">
+  <h4>Add Cocktail</h4>
   <%= simple_form_for @cocktail do |f|%>
     <%= f.input :name %>
-    <%= f.input :url %>
-    <%= f.submit %>
+    <%= f.input :photo, as: :file,  input_html: { class: 'my-button' } %>
+    <%= f.submit id: 'my-button'%>
   <% end %>
+  <%= link_to 'Back', :back %>
 </div>
 

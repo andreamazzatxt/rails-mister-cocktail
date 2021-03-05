@@ -1,9 +1,9 @@
 <div class="container">
   <div class="l-container">
   <% @cocktails.each do |cocktail| %>
-      <a href="<%= cocktail_path(cocktail) %>">
+      <a href="<%= cocktail_path(cocktail) %>#show_product">
          <div class="b-game-card">
-            <div class="b-game-card__cover" style="background-image: url(<%= cocktail.url %>);">
+            <div class="b-game-card__cover" style="background-image: url(<%= cl_image_path cocktail.photo.key, height: 750, crop: :fill %>);">
 
                 <p><%= cocktail.name.split(' ')[0].upcase %><br>
                  <%= cocktail.name.split(' ')[1].upcase if cocktail.name.split(' ').size == 2 %></p>
@@ -13,8 +13,4 @@
         </a>
     <% end %>
   </div>
-</div>
-
-<div class="floating-button">
-  <%= link_to 'Add Cocktail', new_cocktail_path %>
 </div>

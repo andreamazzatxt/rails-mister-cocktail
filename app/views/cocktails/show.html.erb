@@ -1,13 +1,13 @@
-<div id="show_product" class="container d-flex flex-row align-items-center pb-6">
+<div id="show_product" class="container d-flex flex-row align-items-center py-6">
   <div class="container">
-    <%= image_tag @cocktail.url, width:400 %>
+   <%= cl_image_tag @cocktail.photo.key, width: 400, crop: :fill %>
   </div>
   <div class="container">
     <h1 class="title_show"><%= @cocktail.name %></h1>
     <div class="doses-box">
       <% @doses.each do |dose| %>
       <div class="ingredient-tile">
-        <p><%= dose.ingredient.name %> - <%= dose.description %></p><%= link_to raw('<i class="fas fa-times"></i>'), dose_path(dose), {method: :delete, } %></span>
+        <p><%= dose.ingredient.name %> - <%= dose.description %><%= link_to raw('<i class="fas fa-times"></i>'), dose_path(dose), {method: :delete, } %></p>
       </div>
 
       <% end %>

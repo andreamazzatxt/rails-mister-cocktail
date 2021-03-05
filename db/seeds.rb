@@ -25,6 +25,7 @@ pictures = %w[
   https://images.unsplash.com/photo-1468465236047-6aac20937e92?ixid=MXwxMjA3fDB8MHxzZWFyY2h8Njh8fGNvY2t0YWlsfGVufDB8MXwwfA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60
   https://images.unsplash.com/photo-1574026266411-b4256800b9eb?ixid=MXwxMjA3fDB8MHxzZWFyY2h8MTA0fHxjb2NrdGFpbHxlbnwwfDF8MHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60
   https://images.unsplash.com/photo-1613934619052-27d9464c8819?ixid=MXwxMjA3fDB8MHxzZWFyY2h8MTI2fHxjb2NrdGFpbHxlbnwwfDF8MHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60
+  https://images.unsplash.com/photo-1607446045875-de57c995726b?ixid=MXwxMjA3fDB8MHxzZWFyY2h8OHx8Y29ja3RhaWxzfGVufDB8MXwwfA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60
 ]
 
 dose = ['2 cups', '1 liter', '2 spoons', 'just a bit', 'a cup', 'half glass']
@@ -33,10 +34,13 @@ def random_ingredient
 end
 
 pictures.each do |pic|
-  Cocktail.create!({ name: Faker::FunnyName.two_word_name,
-                     url: pic })
+  name = Faker::FunnyName.two_word_name
+  cocktail = Cocktail.new(name: name)
+  file = URI.open(pic)
+  cocktail.photo.attach(io: file, filename: "#{name.gsub(' ', '_')}.jpeg", content_type: 'image/jpeg')
+  cocktail.save!
   3.times do
-    Dose.create!(description: dose.sample, ingredient: random_ingredient, cocktail: Cocktail.last)
+    Dose.create!(description: dose.sample, ingredient: random_ingredient, cocktail: cocktail)
   end
 end
 puts 'Done !!! 🌱'
