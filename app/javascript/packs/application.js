@@ -8,6 +8,12 @@ import Turbolinks from "turbolinks"
 import * as ActiveStorage from "@rails/activestorage"
 import "channels"
 import 'bootstrap';
+import { loadDynamicBannerText } from './banner';
+
+document.addEventListener('turbolinks:load', () => {
+console.log('done!')
+  loadDynamicBannerText();
+});
 
 Rails.start()
 Turbolinks.start()

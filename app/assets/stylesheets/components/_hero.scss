@@ -1,0 +1,28 @@
+@import url('https://fonts.googleapis.com/css2?family=Rock+Salt&display=swap');
+.hero {
+  background-size: cover;
+  background-position: center;
+  height: 70vh;
+}
+
+.hero-layer {
+    height: 70vh;
+    display: flex;
+    flex-flow: column wrap;
+    align-items: center;
+    justify-content: center;
+    h2 {
+      color: #193924;
+      font-size: 5rem;
+      font-weight: bolder;
+      font-family: 'Rock Salt', cursive;
+    }
+    p {
+      color: #A5BB4D;
+      padding-top: 30px;
+      font-family: 'Montserrat', sans-serif;
+      font-weight: light;
+      font-size: 1.5rem;
+      text-align: center;
+    }
+}

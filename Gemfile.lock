@@ -72,6 +72,8 @@ GEM
     diff-lcs (1.4.4)
     erubi (1.10.0)
     execjs (2.7.0)
+    faker (2.16.0)
+      i18n (>= 1.6, < 2)
     ffi (1.14.2)
     font-awesome-sass (5.12.0)
       sassc (>= 1.11)
@@ -161,22 +163,25 @@ GEM
       rspec-mocks (~> 3.10)
       rspec-support (~> 3.10)
     rspec-support (3.10.2)
-    sass-rails (6.0.0)
-      sassc-rails (~> 2.1, >= 2.1.1)
+    sass (3.7.4)
+      sass-listen (~> 4.0.0)
+    sass-listen (4.0.0)
+      rb-fsevent (~> 0.9, >= 0.9.4)
+      rb-inotify (~> 0.9, >= 0.9.7)
+    sass-rails (5.1.0)
+      railties (>= 5.2.0)
+      sass (~> 3.1)
+      sprockets (>= 2.8, < 4.0)
+      sprockets-rails (>= 2.0, < 4.0)
+      tilt (>= 1.1, < 3)
     sassc (2.4.0)
       ffi (~> 1.9)
-    sassc-rails (2.1.2)
-      railties (>= 4.0.0)
-      sassc (>= 2.0)
-      sprockets (> 3.0)
-      sprockets-rails
-      tilt
     semantic_range (2.3.1)
     simple_form (5.1.0)
       actionpack (>= 5.2)
       activemodel (>= 5.2)
     spring (2.1.1)
-    sprockets (4.0.2)
+    sprockets (3.7.2)
       concurrent-ruby (~> 1.0)
       rack (> 1, < 3)
     sprockets-rails (3.2.2)
@@ -212,6 +217,7 @@ DEPENDENCIES
   autoprefixer-rails
   bootsnap (>= 1.4.4)
   byebug
+  faker
   font-awesome-sass (~> 5.12.0)
   jbuilder (~> 2.7)
   listen (~> 3.3)
@@ -221,7 +227,7 @@ DEPENDENCIES
   rails (~> 6.1.3)
   rails-controller-testing
   rspec-rails
-  sass-rails (>= 6)
+  sass-rails (~> 5.1.0)
   simple_form
   spring
   turbolinks (~> 5)

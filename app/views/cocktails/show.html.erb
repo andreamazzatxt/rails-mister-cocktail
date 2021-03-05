@@ -1,0 +1,25 @@
+<div id="show_product" class="container d-flex flex-row align-items-center pb-6">
+  <div class="container">
+    <%= image_tag @cocktail.url, width:400 %>
+  </div>
+  <div class="container">
+    <h1 class="title_show"><%= @cocktail.name %></h1>
+    <div class="doses-box">
+      <% @doses.each do |dose| %>
+      <div class="ingredient-tile">
+        <p><%= dose.ingredient.name %> - <%= dose.description %></p><%= link_to raw('<i class="fas fa-times"></i>'), dose_path(dose), {method: :delete, } %></span>
+      </div>
+
+      <% end %>
+    </div>
+    <h4>Add Ingredients</h4>
+    <%= simple_form_for [@cocktail, @dose] do |f|  %>
+      <%= f.input :description %>
+      <%= f.input :ingredient, collection: @ingredients %>
+      <%= f.submit 'Add Dose', id: 'my-button' %>
+    <% end %>
+    <%= link_to 'Back', root_path %>
+  </div>
+</div>
+
+

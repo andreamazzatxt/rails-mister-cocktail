@@ -1,0 +1,24 @@
+.floating-button {
+  background-color: rgba(25,57,36,0.6);
+  backdrop-filter: blur(10px);
+  border-radius: 3px;
+  display: block;
+  width: 130px;
+  padding: 10px;
+  transform: rotate(-90deg);
+  position: sticky;
+  z-index: 1;
+  top : 60%;
+  left: 99%;
+  transition-duration: 500ms;
+
+  a {
+    text-align: center;
+    color: $green;
+  }
+  &:hover {
+      background-color: rgba(25,57,36,0.8);
+
+  }
+}
+

@@ -1,0 +1,10 @@
+.footer {
+  margin-top: 20vh;
+  color: $green;
+  height: 15vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(25,57,36,0.4);
+  backdrop-filter: blur(10px);
+}

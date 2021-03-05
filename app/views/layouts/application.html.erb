@@ -12,6 +12,11 @@
   </head>
 
   <body>
+    <div class="floating-button">
+      <%= link_to 'Add Cocktail', new_cocktail_path %>
+    </div>
+    <%= render 'header' %>
     <%= yield %>
+    <%= render 'footer' %>
   </body>
 </html>
